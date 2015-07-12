@@ -3,23 +3,29 @@
 NX_VERSION="0.1"
 NX_BASE_URL="https://raw.githubusercontent.com/nixlike/nx/master"
 NX_WGET=$(which wget)
+export NX_ROOT="$HOME/.nx"
 
 alias nx_ver="echo $NX_VERSION"
 
 function nx_up {
+
+ #Checking if nx folder exists 
+ if [ ! -d $NX_ROOT ]; then mkdir $NX_ROOT; fi 
+
+ #Downloading from repository
  if [ -x $NX_WGET ]
  then 
-  $NX_WGET -O ~/.nxrc $NX_BASE_URL/nxrc
-  $NX_WGET -O ~/.nx_vimrc $NX_BASE_URL/vimrc
+  $NX_WGET -O $NX_ROOT/nxrc $NX_BASE_URL/nxrc
+  $NX_WGET -O $NX_ROOT/nxvimrc $NX_BASE_URL/vimrc
  fi
  
 #Checking bashrc
- grep nxrc ~/.bashrc  > /dev/null
+ grep "$NX_ROOT/nxrc" ~/.bashrc  > /dev/null
  if [ $? -ne 0 ]
  then
   echo "Adding include to ~/.bashrc !!"
   echo "" >> ~/.bashrc
-  echo 'source ~/.nxrc' >> ~/.bashrc
+  echo "source $NX_ROOT/nxrc" >> ~/.bashrc
  fi
  echo "NX_VERSION = $NX_VERSION"
 }
