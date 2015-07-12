@@ -2,17 +2,24 @@
 
 NX_VERSION="0.1"
 NX_BASE_URL="https://raw.githubusercontent.com/nixlike/nx/master"
-WGET=$(which wget)
-CURL=$(which curls)
+NX_WGET=$(which wget)
 
-alias nx_ver="echo $NX_VERION"
+alias nx_ver="echo $NX_VERSION"
 
 function nx_up {
-
- if [ -x $WGET ]
+ if [ -x $NX_WGET ]
  then 
-  $WGET -O ~/.nxrc $NX_BASE_URL/nxrc
-  $WGET -O ~/.nx_vimrc $NX_BASE_URL/vimrc
+  $NX_WGET -O ~/.nxrc $NX_BASE_URL/nxrc
+  $NX_WGET -O ~/.nx_vimrc $NX_BASE_URL/vimrc
+ fi
+ 
+#Checking bashrc
+ grep nxrc ~/.bashrc  > /dev/null
+ if [ $? -ne 0 ]
+ then
+  echo "Adding include to ~/.bashrc !!"
+  echo "" >> ~/.bashrc
+  echo 'source ~/.nxrc' >> ~/.bashrc
  fi
  echo "NX_VERSION = $NX_VERSION"
 }
