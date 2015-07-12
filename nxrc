@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NX_VERSION="0.1"
+NX_VERSION="0.2"
 NX_BASE_URL="https://raw.githubusercontent.com/nixlike/nx/master"
 NX_WGET=$(which wget)
 export NX_ROOT="$HOME/.nx"
@@ -15,11 +15,12 @@ function nx_up {
  #Downloading from repository
  if [ -x $NX_WGET ]
  then 
-  $NX_WGET -O $NX_ROOT/nxrc $NX_BASE_URL/nxrc
-  $NX_WGET -O $NX_ROOT/nxvimrc $NX_BASE_URL/vimrc
+  echo "Downloading artifacts"
+  $NX_WGET -q -O $NX_ROOT/nxrc $NX_BASE_URL/nxrc
+  $NX_WGET -q -O $NX_ROOT/nxvimrc $NX_BASE_URL/vimrc
  fi
  
-#Checking bashrc
+ #Checking bashrc
  grep "$NX_ROOT/nxrc" ~/.bashrc  > /dev/null
  if [ $? -ne 0 ]
  then
@@ -27,5 +28,19 @@ function nx_up {
   echo "" >> ~/.bashrc
   echo "source $NX_ROOT/nxrc" >> ~/.bashrc
  fi
- echo "NX_VERSION = $NX_VERSION"
+
+#Checking .vimrc
+ which vim > /dev/null
+ if [ $? == 0 ]
+ then
+  grep "$NX_ROOT/nxvimrc" ~/.vimrc  > /dev/null 
+  if [ $? -ne 0 ]
+  then
+    echo "Adding include to .vimrc !!"
+    echo "" >> ~/.vimrc
+    echo "source $NX_ROOT/nxvimrc" >> ~/.vimrc
+  fi
+ fi
+ echo "Updated to NX_VERSION = $NX_VERSION"
+ source ~/.bashrc
 }
