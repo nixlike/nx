@@ -1,3 +1,18 @@
-NX_VERION="0.1"
+#!/bin/bash
+
+NX_VERSION="0.1"
+NX_BASE_URL="https://raw.githubusercontent.com/nixlike/nx/master"
+WGET=$(which wget)
+CURL=$(which curls)
 
 alias nx_ver="echo $NX_VERION"
+
+function nx_up {
+
+ if [ -x $WGET ]
+ then 
+  $WGET -O ~/.nxrc $NX_BASE_URL/nxrc
+  $WGET -O ~/.nx_vimrc $NX_BASE_URL/vimrc
+ fi
+ echo "NX_VERSION = $NX_VERSION"
+}
