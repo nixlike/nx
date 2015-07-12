@@ -46,6 +46,3 @@ function nx_up {
  echo "Updated to NX_VERSION = $NX_VERSION"
  source ~/.bashrc
 }
-
-#If the script is invoked with an argument , executed it (used for ssh propagating)
-if [ $1 == "nx_up" ] ; then eval $1; else echo "Supported arguments: nx_up"; fi 
