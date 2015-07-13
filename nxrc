@@ -46,3 +46,9 @@ function nx_up {
  echo "Updated to NX_VERSION = $NX_VERSION"
  source ~/.bashrc
 }
+
+#AWS shortcuts
+
+alias nx_awdis="aws ec2 describe-instance-status --include-all-instances"
+alias nx_awdi="aws ec2 describe-instances"
+alias nx_sa="ssh .ssh/id_rsa_nixlike_aws.pem"
