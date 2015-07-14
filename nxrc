@@ -52,3 +52,10 @@ function nx_up {
 alias nx_awdis="aws ec2 describe-instance-status --include-all-instances"
 alias nx_awdi="aws ec2 describe-instances"
 alias nx_sa="ssh -i ~/.ssh/id_rsa_nixlike_aws.pem"
+
+#Docker aliases
+
+alias nx_dcb="sudo docker-compose build"
+alias nx_dcu="sudo docker-compose up"
+alias nx_dcd="sudo docker-compose up -d"
+alias nx_dcp="sudo docker-compose ps"
