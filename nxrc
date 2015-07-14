@@ -51,4 +51,4 @@ function nx_up {
 
 alias nx_awdis="aws ec2 describe-instance-status --include-all-instances"
 alias nx_awdi="aws ec2 describe-instances"
-alias nx_sa="ssh -i .ssh/id_rsa_nixlike_aws.pem"
+alias nx_sa="ssh -i ~/.ssh/id_rsa_nixlike_aws.pem"
