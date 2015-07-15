@@ -60,6 +60,7 @@ alias nx_dcu="sudo docker-compose up"
 alias nx_dcd="sudo docker-compose up -d"
 alias nx_dcp="sudo docker-compose ps"
 alias nx_dcl="sudo docker-compose logs"
+alias nx_west="weave launch && weave launch-dns && weave launch-proxy&&eval $(weave proxy-env)&&export DOCKER_HOST"
 
 #Generic aliases
 alias nx_bf="du -a .|sort -n -r"
