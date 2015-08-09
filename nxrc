@@ -64,3 +64,6 @@ alias nx_west="weave launch && weave launch-dns && weave launch-proxy&&eval $(we
 
 #Generic aliases
 alias nx_bf="du -a .|sort -n -r"
+
+#Set vi mode
+set -o vi
