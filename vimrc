@@ -3,4 +3,4 @@ set incsearch
 set hlsearch
 execute pathogen#infect()
 setlocal foldmethod=syntax
-filetype plugin indent on
+let g:vim_json_syntax_conceal = 0
