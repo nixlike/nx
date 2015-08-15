@@ -1,6 +1,8 @@
 syntax on
 set incsearch
 set hlsearch
-execute pathogen#infect()
+filetype plugin on
+filetype plugin indent on
 setlocal foldmethod=syntax
+set omnifunc=syntaxcomplete#Complete
 let g:vim_json_syntax_conceal = 0
