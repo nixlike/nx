@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NX_VERSION="0.2"
+NX_VERSION="0.3"
 NX_BASE_URL="https://raw.githubusercontent.com/nixlike/nx/master"
 NX_WGET=$(which wget)
 export NX_ROOT="$HOME/.nx"
