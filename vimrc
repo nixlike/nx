@@ -7,3 +7,4 @@ filetype plugin indent on
 set omnifunc=syntaxcomplete#Complete
 let g:vim_json_syntax_conceal = 0
 " autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
+map <leader>jt <Esc>:%!python -m json.tool<CR>
